@@ -53,6 +53,11 @@
           <SubTree ID="check_robot_status"/>
           <PubNav2Goal goal="4.65;-3.5;0"
                        topic_name="goal_pose"/>
+          <CalculateAttackPose costmap_port="{@nav_globalCostmap}"
+                             tracker_port="{@tracker_target}"
+                             goal="{attack_pose}"/>
+          <PubNav2Goal goal="{attack_pose}"
+                     topic_name="goal_pose"/>
         </ReactiveSequence>
       </ForceSuccess>
     </KeepRunningUntilFailure>
